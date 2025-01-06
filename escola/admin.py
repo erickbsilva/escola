@@ -7,7 +7,7 @@ class Estudantes(admin.ModelAdmin):
     list_per_page = 20
     search_fields = ('nome',)
         
-admin.site.register(Estudante,Estudantes)y
+admin.site.register(Estudante,Estudantes)
 
 class Cursos(admin.ModelAdmin):
     list_display = ('id','codigo','descricao')
