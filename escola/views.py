@@ -2,11 +2,13 @@ from escola.models import Estudante,Curso, Matricula
 from escola.serializers import EstudanteSerializer,CursoSerializer, MatriculaSerializer,ListaMatriculasEstudanteSerializer,ListaMatriculasCursoSerializer
 from rest_framework import viewsets, generics
 from rest_framework.authentication import BasicAuthentication
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser, IsAuthenticatedOrReadOnly
 
 class EstudanteViewSet(viewsets.ModelViewSet):
     authentication_classes = [BasicAuthentication]
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAdminUser]
+    # permission_classes = [IsAuthenticatedOrReadOnly]
     queryset = Estudante.objects.all()
     serializer_class = EstudanteSerializer
 
